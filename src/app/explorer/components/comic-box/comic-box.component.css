@@ -1,0 +1,21 @@
+.comic {
+    text-align: center;
+    border: 2px solid gray;
+    width: 200px;
+    height: 300px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 7px;
+}
+
+.comicpic {
+    border: 1px solid black;
+    width: 180px;
+    height: 200px;
+    border-radius: 4px;
+}
+
+.comicName {
+    font-weight: bold; 
+    font-size: medium;
+}
