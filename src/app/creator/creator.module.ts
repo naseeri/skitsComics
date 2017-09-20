@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { EditorComponent } from './components/editor/editor.component';
+import { EditorComponent } from './editor/editor.component';
 
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { ColorPickerModule } from 'ngx-color-picker';
-import { PlainComponent } from './components/plain/plain.component'
 
 @NgModule({
   imports: [
@@ -16,8 +15,8 @@ import { PlainComponent } from './components/plain/plain.component'
     ColorPickerModule
   ],
   exports: [
-    PlainComponent, EditorComponent
+    EditorComponent
   ],
-  declarations: [PlainComponent, EditorComponent]
+  declarations: [EditorComponent]
 })
 export class CreatorModule { }

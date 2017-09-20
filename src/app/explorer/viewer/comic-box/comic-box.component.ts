@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Comic } from '../../comic.model';
 
 @Component({
   selector: 'app-comic-box',
@@ -6,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comic-box.component.css']
 })
 export class ComicBoxComponent implements OnInit {
+  @Input() comic: Comic;
 
   constructor() { }
-
+  
   ngOnInit() {
   }
 

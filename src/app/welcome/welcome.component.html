@@ -9,9 +9,8 @@
     <button type="button" class="btn btn-primary" style="padding: 50px">Create</button>
 </div>
 
-<app-viewer></app-viewer>
-<app-plain></app-plain>
-<app-editor></app-editor>
+<app-viewer [comics]="comics"></app-viewer>
+<app-editor (newComicCreated)="onComicAdded($event)"></app-editor>
 
 
 
