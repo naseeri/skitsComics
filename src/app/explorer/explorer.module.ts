@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ViewerComponent } from './viewer/viewer.component';
 import { ComicBoxComponent } from './viewer/comic-box/comic-box.component';
+import { ZoomDirective } from './viewer/zoom.directive';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { ComicBoxComponent } from './viewer/comic-box/comic-box.component';
   ],
   declarations: [
     ViewerComponent,
-    ComicBoxComponent
+    ComicBoxComponent,
+    ZoomDirective
   ]
 })
 export class ExplorerModule { }

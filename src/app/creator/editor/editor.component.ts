@@ -14,11 +14,10 @@ declare const fabric: any;
 
 export class EditorComponent implements OnInit {
   @Output('newComicCreated') public comicCreated = new EventEmitter<Comic>();
-  private comicName;
   private comicDescription;
 
-  onSaveComic() {
-    this.comicCreated.emit(new Comic(this.comicName, this.comicDescription, "http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder.png"));
+  onSaveComic(name: HTMLInputElement) {
+    this.comicCreated.emit(new Comic(name.value, this.comicDescription, "http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder.png"));
   }
 
   private canvas: any;

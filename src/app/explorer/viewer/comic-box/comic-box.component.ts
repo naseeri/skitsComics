@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { Comic } from '../../comic.model';
 
 @Component({
@@ -11,7 +11,6 @@ export class ComicBoxComponent implements OnInit {
 
   constructor() { }
   
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
