@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ViewerComponent } from './viewer/viewer.component';
 import { ComicBoxComponent } from './viewer/comic-box/comic-box.component';
-import { ZoomDirective } from './viewer/zoom.directive';
+import { ZoomDirective } from '../directives/zoom.directive';
 
 @NgModule({
   imports: [

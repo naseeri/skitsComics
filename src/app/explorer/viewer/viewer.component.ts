@@ -4,17 +4,20 @@ import { ComicBoxComponent } from './comic-box/comic-box.component';
 
 import { Comic } from '../../models/comic.model';
 
+import { ComicService } from '../../services/comic.service';
+
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
   styleUrls: ['./viewer.component.css']
 })
 export class ViewerComponent implements OnInit {
-  @Input() comics: Comic[];
+  comics: Comic[];
 
-  constructor() { }
+  constructor(private comicServ: ComicService) { }
 
   ngOnInit() {
+    this.comics = this.comicServ.comics;
   }
 
 }

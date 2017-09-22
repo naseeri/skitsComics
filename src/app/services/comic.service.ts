@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Comic } from '../models/comic.model';
+import { LoggingService } from './logging.service';
 
 @Injectable()
 export class ComicService {
@@ -10,9 +11,10 @@ export class ComicService {
     new Comic("Gravity Falls", 'This is yet another test', 'http://vignette4.wikia.nocookie.net/gravityfalls/images/f/f2/Gravity_Falls_Cinestory_Comic.jpg/revision/latest?cb=20160125235628')
   ];
 
-  constructor() { }
+  constructor(private logging: LoggingService) { }
 
   addComic(data:Comic) {
+    this.logging.log("Comic Created");
     console.info(this.comics);
     this.comics.push(data);
   }

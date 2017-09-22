@@ -6,6 +6,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ExplorerModule } from './explorer/explorer.module';
 import { CreatorModule } from "./creator/creator.module";
 
+import { ComicService } from "./services/comic.service"
+import { LoggingService } from "./services/logging.service";
+
 @NgModule({
   declarations: [
     WelcomeComponent,
@@ -15,7 +18,7 @@ import { CreatorModule } from "./creator/creator.module";
     ExplorerModule,
     CreatorModule
   ],
-  providers: [],
+  providers: [ComicService, LoggingService],
   bootstrap: [WelcomeComponent]
 })
 export class AppModule { }

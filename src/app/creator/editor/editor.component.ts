@@ -13,8 +13,7 @@ declare const fabric: any;
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.css'],
-  providers: [LoggingService, ComicService]
+  styleUrls: ['./editor.component.css']
 })
 
 export class EditorComponent implements OnInit {
@@ -22,7 +21,6 @@ export class EditorComponent implements OnInit {
 
   onSaveComic(name: HTMLInputElement) {
     this.comicService.addComic(new Comic(name.value, this.comicDescription, "http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder.png"));
-    this.logging.log("Comic Created");
   }
 
   private canvas: any;
