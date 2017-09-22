@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { ComicBoxComponent } from './comic-box/comic-box.component';
 
-import { Comic } from '../comic.model';
+import { Comic } from '../../models/comic.model';
 
 @Component({
   selector: 'app-viewer',

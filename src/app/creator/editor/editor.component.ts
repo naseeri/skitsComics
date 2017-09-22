@@ -1,7 +1,11 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ColorPickerService } from 'ngx-color-picker';
 
-import { Comic } from '../../explorer/comic.model';
+import { LoggingService } from '../../services/logging.service';
+
+import { Comic } from '../../models/comic.model';
+
+import { ComicService } from '../../services/comic.service';
 
 import 'fabric';
 declare const fabric: any;
@@ -9,15 +13,16 @@ declare const fabric: any;
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.css']
+  styleUrls: ['./editor.component.css'],
+  providers: [LoggingService, ComicService]
 })
 
 export class EditorComponent implements OnInit {
-  @Output('newComicCreated') public comicCreated = new EventEmitter<Comic>();
   private comicDescription;
 
   onSaveComic(name: HTMLInputElement) {
-    this.comicCreated.emit(new Comic(name.value, this.comicDescription, "http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder.png"));
+    this.comicService.addComic(new Comic(name.value, this.comicDescription, "http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder.png"));
+    this.logging.log("Comic Created");
   }
 
   private canvas: any;
@@ -51,7 +56,7 @@ export class EditorComponent implements OnInit {
   private figureEditor: boolean = false;
   private selected: any;
 
-  constructor(private cpService: ColorPickerService) { }
+  constructor(private cpService: ColorPickerService, private logging: LoggingService, private comicService: ComicService) { }
 
   ngOnInit() {
 

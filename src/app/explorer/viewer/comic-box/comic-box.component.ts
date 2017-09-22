@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ElementRef, ViewChild, Renderer2 } from '@angular/core';
-import { Comic } from '../../comic.model';
+import { Comic } from '../../../models/comic.model';
 
 @Component({
   selector: 'app-comic-box',
