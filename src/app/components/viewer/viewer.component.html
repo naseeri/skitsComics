@@ -1,0 +1,7 @@
+<span style="padding: 15px">
+  <input type="button" class="btn btn-primary" value="Home" routerLink="/" />
+</span>
+
+<div class="viewer">
+  <app-comic-box *ngFor="let comic of comics" [comic]="comic"></app-comic-box>
+</div>

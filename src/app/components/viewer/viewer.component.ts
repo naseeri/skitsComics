@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ComicBoxComponent } from './comic-box/comic-box.component';
+import { ComicBoxComponent } from '../comic-box/comic-box.component';
 
 import { Comic } from '../../models/comic.model';
 
@@ -17,7 +17,12 @@ export class ViewerComponent implements OnInit {
   constructor(private comicServ: ComicService) { }
 
   ngOnInit() {
-    this.comics = this.comicServ.comics;
+    this.comics = this.comicServ.getComics();
+    this.comicServ.comicsChanged.subscribe(
+      (comics: Comic[]) => {
+        this.comics = comics;
+      } 
+    )
   }
 
 }
