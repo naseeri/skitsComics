@@ -2,6 +2,8 @@
 
 Comic strips generator created with Angular 4
 
+Note: I know about the little CSS bug in the explorer section but.... is it really a bug?
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
