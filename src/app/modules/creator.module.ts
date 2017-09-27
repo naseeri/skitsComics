@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { EditorComponent } from '../components/editor/editor.component';
-
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
 import { ColorPickerModule } from 'ngx-color-picker';
 
+import { EditorComponent } from '../components/editor/editor.component';
+import { CanDeactivateGuardService } from '../services/can-deactivate-guard.service';
+
 const creatorRoutes: Routes = [
-  {path: 'editor', component: EditorComponent }
+  {path: 'editor', canDeactivate: [CanDeactivateGuardService], component: EditorComponent }
 ];
 
 @NgModule({

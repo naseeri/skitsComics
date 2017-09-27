@@ -9,10 +9,15 @@ import { ComicService } from "../services/comic.service"
 import { LoggingService } from "../services/logging.service";
 import { AppComponent } from '../components/app/app.component';
 
+import { AuthGuardService } from "../services/auth-guard.service";
+import { AuthService } from "../services/auth.service";
+import { CanDeactivateGuardService } from '../services/can-deactivate-guard.service';
+
 const appRoutes: Routes = [
   {path: '', loadChildren: './home.module#HomeModule'},
   {path: 'explorer', loadChildren: './explorer.module#ExplorerModule'},
-  {path: 'creator', loadChildren: './creator.module#CreatorModule'}
+  {path: 'creator', canActivate: [AuthGuardService], loadChildren: './creator.module#CreatorModule'},
+  {path: '**', redirectTo:'/'}
 ];
 
 @NgModule({
@@ -25,7 +30,7 @@ const appRoutes: Routes = [
     ExplorerModule,
     CreatorModule
   ],
-  providers: [ComicService, LoggingService],
+  providers: [ComicService, LoggingService, AuthGuardService, AuthService, CanDeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

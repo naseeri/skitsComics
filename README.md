@@ -1,6 +1,6 @@
-# Skitscomics
+# SkitsComicStrips
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+Comic strips generator created with Angular 4
 
 ## Development server
 

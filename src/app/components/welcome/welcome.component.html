@@ -2,11 +2,18 @@
     <h1>
       Welcome to {{title}}!
     </h1>
-    <img width="300" src="assets/sassy.jpg">
+    <img style="width: 300px; border-radius: 7px" src="assets/sassy.jpg">
+    <br /><br />
+    <div class="input-group " style="width: 350px; margin: auto">
+        <div class="input-group-addon">Name: </div>
+        <input type="text" class="form-control" [ngClass]="{inValid: checkUserName(), blink_me: checkUserName()}" [(ngModel)]="authService.userName" placeholder="Please enter your name">
+    </div>
+
 </div>
 <div class="row" style="text-align: center; padding: 25px" >
     <button routerLink="/explorer/viewer" type="button" class="btn" style="margin:25px ;background-color: orangered; color: white; padding: 50px">Explore</button>
-    <button routerLink="/creator/editor" type="button" class="btn btn-primary" style="padding: 50px">Create</button>
+    <!-- <button routerLink="/creator/editor" type="button" class="btn btn-primary" style="padding: 50px">Create</button> -->
+    <button (click)="onCreate()" type="button" class="btn btn-primary" style="padding: 50px">Create</button>
 </div>
 
 

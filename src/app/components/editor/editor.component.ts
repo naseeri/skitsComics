@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ColorPickerService } from 'ngx-color-picker';
+import { Observable } from 'rxjs/Observable'
 
 import { LoggingService } from '../../services/logging.service';
-
-import { Comic } from '../../models/comic.model';
-
 import { ComicService } from '../../services/comic.service';
+import { CanComponentDeactivate } from '../../services/can-deactivate-guard.service';
+import { Comic } from '../../models/comic.model';
 
 import 'fabric';
 declare const fabric: any;
@@ -16,11 +16,19 @@ declare const fabric: any;
   styleUrls: ['./editor.component.css']
 })
 
-export class EditorComponent implements OnInit {
+export class EditorComponent implements OnInit, CanComponentDeactivate {
   private comicDescription;
 
   onSaveComic(name: HTMLInputElement) {
     this.comicService.addComic(new Comic(name.value, this.comicDescription, "http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder.png"));
+  }
+
+  CanDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    if(this.comicDescription!="") {
+      return confirm("Do you want to discard changes?");
+    } else {
+      return true;
+    }
   }
 
   private canvas: any;
