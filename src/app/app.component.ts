@@ -4,11 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app',
   template: '<router-outlet></router-outlet>'
 })
-export class AppComponent implements OnInit {
+export class AppComponent { }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+//1----login
+//2----v2/retail/deals/dealerdealdevices" 

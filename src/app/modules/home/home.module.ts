@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { Routes, RouterModule } from '@angular/router';
 
-import { WelcomeComponent } from '../components/welcome/welcome.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
-const creatorRoutes: Routes = [
+const homeRoutes: Routes = [
   {path: '', component: WelcomeComponent }
 ];
 
@@ -15,7 +15,7 @@ const creatorRoutes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(creatorRoutes)
+    RouterModule.forChild(homeRoutes)
   ],
   declarations: [WelcomeComponent]
 })

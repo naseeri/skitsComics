@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ColorPickerService } from 'ngx-color-picker';
 import { Observable } from 'rxjs/Observable'
 
-import { LoggingService } from '../../services/logging.service';
-import { ComicService } from '../../services/comic.service';
-import { CanComponentDeactivate } from '../../services/can-deactivate-guard.service';
-import { Comic } from '../../models/comic.model';
+import { LoggingService } from '../../../services/logging.service';
+import { ComicService } from '../../../services/comic.service';
+import { CanComponentDeactivate } from '../../../services/can-deactivate-guard.service';
+import { Comic } from '../../../models/comic.model';
 
 import 'fabric';
 declare const fabric: any;

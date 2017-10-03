@@ -1,0 +1,40 @@
+<div class="emailBox">
+  <form (ngSubmit)="submitForm()" #f="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" ngModel name="name" required minlength="3" #name="ngModel">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+        <div *ngIf="name.errors.required">Name is required.</div>
+        <div *ngIf="name.errors.minlength">Name must be at least 3 characters long.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="surname">Surname</label>
+      <input type="text" id="surname" class="form-control" ngModel name="surname" required min="3" #surname="ngModel">
+      <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="alert alert-danger">
+        <div *ngIf="surname.errors.required">Surname is required.</div>
+        <div *ngIf="surname.errors.minlength">Surname must be at least 3 characters long.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" ngModel name="email" 
+      pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+      email required #email="ngModel">
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+        <div *ngIf="email.errors.required">Email is required.</div>
+        <div *ngIf="email.errors.email">Please enter correct email</div>
+        <div *ngIf="email.errors.pattern">Please enter correct email pattern</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" class="form-control" ngModel name="phone" required #phone="ngModel" pattern="^\+[1-9]{1}[0-9]{3,14}$">
+      <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+        <div *ngIf="phone.errors.required">Phone number is required.</div>
+        <div *ngIf="phone.errors.pattern">Please enter correct phone number starting with a '+'</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+  </form>
+</div>
