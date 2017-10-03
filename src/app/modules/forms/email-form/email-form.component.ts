@@ -12,7 +12,6 @@ export class EmailFormComponent {
   submitForm() {
     console.log('emailForm', this.emailForm);
     console.log('emailForm.value', this.emailForm.value);
-    // console.log('emailForm', this.emailForm);
   }
 
 }
