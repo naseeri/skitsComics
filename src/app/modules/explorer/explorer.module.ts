@@ -6,6 +6,7 @@ import { ViewerComponent } from './viewer/viewer.component';
 import { ComicBoxComponent } from './viewer/comic-box/comic-box.component';
 import { ZoomDirective } from '../../directives/zoom.directive';
 import { StarWordPipe } from '../../pipes/star-word.pipe';
+import { SortListPipe } from '../../pipes/sort-list.pipe';
 
 const explorerRoutes: Routes = [
   {path: 'viewer', component: ViewerComponent }
@@ -23,7 +24,8 @@ const explorerRoutes: Routes = [
     ViewerComponent,
     ComicBoxComponent,
     ZoomDirective,
-    StarWordPipe
+    StarWordPipe,
+    SortListPipe
   ]
 })
 export class ExplorerModule { }

@@ -3,5 +3,5 @@
 </span>
 
 <div class="viewer">
-  <app-comic-box *ngFor="let comic of comics" [comic]="comic"></app-comic-box>
+  <app-comic-box *ngFor="let comic of comics | sortList:'name'" [comic]="comic"></app-comic-box>
 </div>
