@@ -1,5 +1,5 @@
-<div class="comic" appZoom [defaultWidth]="'200px'" [defaultHeight]="'300px'" [zoomtWidth]="'700px'" [zoomHeight]="'800px'" >
-  <img [src]="comic.imagePath" class="comicpic" alt="Comic Image" appZoom [defaultWidth]="'180px'" [defaultHeight]="'200px'" [zoomtWidth]="'680px'" [zoomHeight]="'700px'"/>
+<div class="comic" appZoom [defaultWidth]="'200px'" [defaultHeight]="'300px'" [zoomtWidth]="'520px'" [zoomHeight]="'900px'" >
+  <img [src]="imageAddress(comic.imagePath)" class="comicpic" alt="Comic Image" appZoom [defaultWidth]="'125px'" [defaultHeight]="'200px'" [zoomtWidth]="'500px'" [zoomHeight]="'800px'"/>
   <div class="comicName">
     {{comic.name | starWord:true}}
   </div>

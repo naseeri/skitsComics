@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Response } from '@angular/http';
 import { ColorPickerService } from 'ngx-color-picker';
 import { Observable } from 'rxjs/Observable'
+import { Router } from '@angular/router';
 
 import { LoggingService } from '../../../services/logging.service';
 import { ComicService } from '../../../services/comic.service';
+import { ComicsService } from '../../../services/server/comics.service';
 import { CanComponentDeactivate } from '../../../services/can-deactivate-guard.service';
 import { Comic } from '../../../models/comic.model';
 
@@ -17,7 +20,21 @@ declare const fabric: any;
 })
 
 export class EditorComponent implements OnInit, CanComponentDeactivate {
-  private comicDescription;
+  private comicDescription = "";
+
+  onSavaComicToServer(name: HTMLInputElement) {
+    if(name.value.length<3 || this.comicDescription.length<3) {
+      alert('Name or Description not valid. Go fly a kite!');
+    } else {
+      this.comicsService.saveComic(name.value, this.comicDescription, this.canvas.toDataURL())
+      .subscribe(
+        (response: Response) => {
+          console.log("ServerResponse", response);
+          this.router.navigate(['/']);
+        }
+      );
+    }
+  }
 
   onSaveComic(name: HTMLInputElement) {
     this.comicService.addComic(new Comic(name.value, this.comicDescription, "http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder.png"));
@@ -25,7 +42,7 @@ export class EditorComponent implements OnInit, CanComponentDeactivate {
 
   CanDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
     if(this.comicDescription!="") {
-      return confirm("Do you want to discard changes?");
+      return confirm("Are you sure?");
     } else {
       return true;
     }
@@ -62,7 +79,11 @@ export class EditorComponent implements OnInit, CanComponentDeactivate {
   private figureEditor: boolean = false;
   private selected: any;
 
-  constructor(private cpService: ColorPickerService, private logging: LoggingService, private comicService: ComicService) { }
+  constructor(private cpService: ColorPickerService, 
+    private logging: LoggingService, 
+    private comicService: ComicService, 
+    private comicsService: ComicsService,
+    private router: Router ) { }
 
   ngOnInit() {
 

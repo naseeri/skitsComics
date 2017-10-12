@@ -6,6 +6,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 
 import { EditorComponent } from './editor/editor.component';
 import { CanDeactivateGuardService } from '../../services/can-deactivate-guard.service';
+import { ComicsService } from '../../services/server/comics.service';
 
 const creatorRoutes: Routes = [
   {path: 'editor', canDeactivate: [CanDeactivateGuardService], component: EditorComponent }
@@ -18,6 +19,7 @@ const creatorRoutes: Routes = [
     ColorPickerModule,
     RouterModule.forChild(creatorRoutes)
   ],
+  providers: [ComicsService],
   exports: [
     EditorComponent
   ],

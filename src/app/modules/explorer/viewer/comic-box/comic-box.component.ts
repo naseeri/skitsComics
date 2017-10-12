@@ -13,4 +13,9 @@ export class ComicBoxComponent implements OnInit {
   
   ngOnInit() { }
 
+  imageAddress(img:string) {
+    const address = "http://10.133.168.234:9999/";
+    return address + img;
+  }
+
 }

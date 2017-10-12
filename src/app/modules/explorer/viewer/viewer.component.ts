@@ -16,21 +16,23 @@ export class ViewerComponent implements OnInit {
   constructor(private comicServ: ComicService, private comicsServ: ComicsService ) { }
 
   ngOnInit() {
-    this.comicsServ.getComics().subscribe(
+    this.comicsServ.getComics()
+    .subscribe(
       (response) => {
         console.log(response);
+        this.comics = response;
       }, 
       (error) => {
         console.log(error);
       }
     );
 
-    this.comics = this.comicServ.getComics();
-    this.comicServ.comicsChanged.subscribe(
-      (comics: Comic[]) => {
-        this.comics = comics;
-      } 
-    )
+    // this.comics = this.comicServ.getComics();
+    // this.comicServ.comicsChanged.subscribe(
+    //   (comics: Comic[]) => {
+    //     this.comics = comics;
+    //   } 
+    // )
   }
 
 }

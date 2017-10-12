@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
-  userName = "";
+  userName = "TestUser";
 
   isAuthenticated() {
     const promise = new Promise(
