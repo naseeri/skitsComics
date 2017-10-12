@@ -20,6 +20,7 @@ const appRoutes: Routes = [
   {path: 'explorer', loadChildren: './modules/explorer/explorer.module#ExplorerModule'},
   {path: 'creator', canActivate: [AuthGuardService], loadChildren: './modules/creator/creator.module#CreatorModule'},
   {path: 'forms', loadChildren:'./modules/forms/forms.module#FormsModule'},
+  {path: 'auth', loadChildren:'./modules/authentication/authentication.module#AuthenticationModule'},
   {path: '**', redirectTo:'/'}
 ];
 
