@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 import { Comic } from '../../models/comic.model';
 
 const serverAddresses = {
-  'main': "http://10.133.168.234:9999/"
+  'main': "http://localhost:9999/"
 };
 
 const services = {
